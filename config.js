@@ -3,7 +3,7 @@
 // 例）https://buy.stripe.com/xxxxxxxxxxxx
 // 空のままだと、購入ボタンは「準備中」と表示され、押せません（誤って公開しても安全です）。
 window.YK = {
-  payUrl: "",
+  payUrl: "https://buy.stripe.com/5kQbJ17lhc4deKo4U76oo00",
   freeUrl: "https://yururi-kakeibo.booth.pm/items/8917387",
   shopUrl: "https://yururi-kakeibo.booth.pm/"
 };
