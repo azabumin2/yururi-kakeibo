@@ -4,7 +4,8 @@
 // 空のままだと、購入ボタンは「準備中」と表示され、押せません（誤って公開しても安全です）。
 window.YK = {
   payUrl: "https://buy.stripe.com/5kQbJ17lhc4deKo4U76oo00",
-  freeUrl: "https://yururi-kakeibo.booth.pm/items/8917387",
+  freeUrl: "free/",
+  boothFreeUrl: "https://yururi-kakeibo.booth.pm/items/8917387",
   shopUrl: "https://yururi-kakeibo.booth.pm/"
 };
 document.addEventListener("DOMContentLoaded", function () {

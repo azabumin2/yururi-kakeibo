@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>ゆるり家計簿｜年間イベント費 積立ノート（完全版・スマホ用）</title>
+<meta name="description" content="スマホですぐ使える、年間イベント費 積立ノート。販売元：株式会社PRIAMOS">
+<link rel="icon" href="../../../img/favicon.png">
+<style>
+:root{--pink:#F7C6D0;--pink-d:#E98FA6;--pink-l:#FDECEF;--plum:#6B2D42;--txt:#4A3F45;--mute:#8A8188;--cream:#FFF7DB;--lav:#E9E3F5;--mint:#E3F3EA;--line:#EBD3DA;--btn:#D6577B;--btn-d:#B8426A;--red:#C62828}
+*{box-sizing:border-box}
+html{color-scheme:light;-webkit-text-size-adjust:100%}
+body{margin:0;background:#FFFBFC;color:var(--txt);line-height:1.7;font-size:16px;font-family:"Meiryo","メイリオ","Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;padding-bottom:84px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+header .in{max-width:900px;margin:0 auto;padding:8px 14px;display:flex;align-items:center;gap:10px}
+header img{width:34px;height:34px;border-radius:50%}
+header b{color:var(--plum);font-size:16px;white-space:nowrap}
+header small{margin-left:auto;background:var(--pink-l);color:var(--btn-d);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;white-space:nowrap}
+main{max-width:900px;margin:0 auto;padding:14px}
+.tab{display:none}.tab.on{display:block}
+h2{margin:6px 0 10px;color:var(--plum);font-size:19px}
+h3{margin:0 0 6px;color:var(--plum);font-size:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:0 0 10px}
+.sum{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+@media(min-width:700px){.sum{grid-template-columns:repeat(5,1fr)}.sum .wide{grid-column:auto}.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}.cards .card{margin:0}}
+.sum div{background:var(--pink-l);border-radius:12px;padding:9px 12px}
+.sum span{display:block;font-size:12px;color:var(--mute)}
+.sum b{font-size:19px;color:var(--plum)}
+.sum .wide{grid-column:1/3}
+.msg{background:var(--lav);color:var(--plum);border-radius:12px;padding:9px 12px;font-weight:700;text-align:center;margin:0 0 12px;font-size:14px}
+.msg.warn{background:#FDE3E3;color:var(--red)}
+.row{display:flex;justify-content:space-between;gap:8px;font-size:14px}
+.row b{color:var(--plum)}
+.bar{height:10px;background:#F3E6EA;border-radius:6px;overflow:hidden;margin:8px 0 6px}
+.bar i{display:block;height:100%;background:var(--pink-d);border-radius:6px}
+.bar.over i{background:var(--red)}
+.over-t,.neg{color:var(--red)!important;font-weight:700}
+label{display:block;font-size:13px;color:var(--mute);margin:8px 0 3px}
+input,select,textarea{width:100%;font:inherit;font-size:16px;padding:10px 11px;border:1px solid var(--line);border-radius:10px;background:var(--cream);color:var(--txt)}
+textarea{background:#fff;font-size:13px;min-height:90px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+button{font:inherit;cursor:pointer}
+.btn{display:block;width:100%;background:var(--btn);color:#fff;border:0;border-radius:999px;padding:12px;font-weight:700;font-size:16px;margin-top:12px;box-shadow:0 3px 0 var(--btn-d)}
+.btn.sub{background:#fff;color:var(--btn-d);border:2px solid var(--pink-d);box-shadow:none}
+.btn.sm{display:inline-block;width:auto;padding:7px 14px;font-size:14px;margin:6px 6px 0 0;box-shadow:none}
+.ent{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.ent:last-child{border-bottom:0}
+.ent .d{color:var(--mute);width:78px;flex:none;font-size:13px}
+.ent .m{flex:1;min-width:0}
+.ent .m small{display:block;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ent .a{font-weight:700;color:var(--plum);white-space:nowrap}
+.ent .x{border:0;background:none;color:var(--mute);font-size:20px;padding:2px 6px}
+.ent.bad .d{color:var(--red)}
+.note{font-size:12.5px;color:var(--mute)}
+.warnline{color:var(--red);font-size:13px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:6px}
+table.t{border-collapse:collapse;min-width:820px;width:100%;font-size:12.5px}
+table.t th,table.t td{border-bottom:1px solid var(--line);border-right:1px solid #F5E6EA;padding:6px 7px;text-align:right;white-space:nowrap}
+table.t th{background:var(--pink);color:var(--plum);text-align:center;position:sticky;top:0}
+table.t td:first-child,table.t th:first-child{position:sticky;left:0;background:#fff;text-align:left;font-weight:700;color:var(--plum);min-width:118px;max-width:150px;overflow:hidden;text-overflow:ellipsis;z-index:1}
+table.t th:first-child{background:var(--pink)}
+table.t tr.tot td{background:var(--mint);font-weight:700}
+table.t tr.tot td:first-child{background:var(--mint)}
+nav.bot{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom);z-index:6}
+nav.bot button{flex:1;border:0;background:none;padding:9px 2px 8px;color:var(--mute);font-size:12px;font-weight:700}
+nav.bot button span{display:block;font-size:20px;line-height:1.2}
+nav.bot button.on{color:var(--btn-d)}
+.up{background:var(--cream);border-radius:14px;padding:14px;margin-top:14px}
+.up a{color:var(--btn-d);font-weight:700}
+footer{max-width:900px;margin:10px auto 0;padding:0 14px;font-size:12px;color:var(--mute);text-align:center}
+footer a{color:var(--mute)}
+ol,ul{padding-left:22px;margin:6px 0}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<header><div class="in"><img src="../../../img/icon.png" alt=""><b>ゆるり家計簿</b><small>完全版</small></div></header>
+
+<main>
+<section id="t-home" class="tab on">
+  <h2>♡ ホーム</h2>
+  <p class="note" id="period"></p>
+  <div class="sum">
+    <div><span>年間予算の合計</span><b id="s-budget">0円</b></div>
+    <div><span>ここまでに使った額</span><b id="s-used">0円</b></div>
+    <div><span>残りの予算</span><b id="s-left">0円</b></div>
+    <div><span>毎月の積立目安</span><b id="s-month">0円</b></div>
+    <div class="wide"><span>いまの積立残高（目安）</span><b id="s-pool">0円</b></div>
+  </div>
+  <div class="msg" id="check"></div>
+  <div id="items" class="cards"></div>
+  <p class="note" style="margin-top:10px">積立の考え方：毎月の積立＝年間予算÷12（切り上げ）／積立残高＝最初から貯めてある額＋毎月の積立×経過月数－使った額。実際に口座を分ける必要はなく、取り分けの目安です。</p>
+  <div class="up liteonly">
+    <b>もっと使いたい方へ（完全版・980円）</b>
+    <ul>
+      <li>イベント項目が5個から15個に</li>
+      <li>「月別」画面（実績・支払い予定・積立残高の推移）</li>
+      <li>支払予定月の設定／入力1,000件</li>
+    </ul>
+    <a href="../">完全版のご案内を見る →</a>
+  </div>
+  <div class="up fullonly">
+    <b>パソコンで使いたい方へ</b><br>
+    <a href="../">Excel版（.xlsx）をダウンロードするページへ →</a>
+  </div>
+</section>
+
+<section id="t-input" class="tab">
+  <h2>✏️ 入力</h2>
+  <div class="card">
+    <label for="f-date">使った日</label>
+    <input type="date" id="f-date">
+    <label for="f-item">項目</label>
+    <select id="f-item"></select>
+    <label for="f-amt">金額（円）</label>
+    <input type="number" id="f-amt" inputmode="numeric" min="0" placeholder="例）12000">
+    <label for="f-memo">メモ（なくてもOK）</label>
+    <input type="text" id="f-memo" maxlength="40" placeholder="例）新幹線代">
+    <button class="btn" id="f-add">追加する</button>
+    <p class="warnline" id="f-err"></p>
+  </div>
+  <h3>入力した記録</h3>
+  <div class="card" id="list"></div>
+  <p class="note">1,000件まで記録できます。</p>
+</section>
+
+<section id="t-month" class="tab fullonly">
+  <h2>📅 月別</h2>
+  <p class="note">すべて自動計算です。横にスクロールできます（スマホは横向きにすると見やすくなります）。</p>
+  <h3>① 実際に使った額（月別）</h3>
+  <div class="tw"><table class="t" id="m1"></table></div>
+  <h3 style="margin-top:14px">② 支払い予定（設定した「支払予定月」に年間予算を表示）</h3>
+  <div class="tw"><table class="t" id="m2"></table></div>
+  <h3 style="margin-top:14px">③ 積立残高の推移（月末時点の目安）</h3>
+  <div class="tw"><table class="t" id="m3"></table></div>
+  <p class="note">※赤い数字は、積立より先に使った（貯めた分が足りない）状態です。</p>
+</section>
+
+<section id="t-set" class="tab">
+  <h2>⚙️ 設定</h2>
+  <div class="card">
+    <h3>はじまりの年と月</h3>
+    <div class="grid2">
+      <div><label for="s-year">開始年</label><input type="number" id="s-year" inputmode="numeric"></div>
+      <div><label for="s-mon">開始月</label><select id="s-mon"></select></div>
+    </div>
+    <p class="note">この月から12か月が、集計の期間です。4月始まりの方は「4」にしてください。</p>
+    <label for="s-ref">基準日（空欄なら今日）</label>
+    <input type="date" id="s-ref">
+    <p class="note">空欄のままでOKです。過去の日で確認したいときだけ入れてください。</p>
+  </div>
+  <div class="card">
+    <h3>イベント項目と年間予算（最大15個）</h3>
+    <p class="note">初期値は「例」です。ご自身の暮らしに合わせて変えてください。項目名を変えると、入力済みの記録も同じ項目として集計されます。<span class="fullonly">支払予定月は空欄でもOKです。</span></p>
+    <div id="set-items"></div>
+  </div>
+  <div class="card">
+    <h3>バックアップ</h3>
+    <p class="note">記録は、この端末のブラウザの中だけに保存されます（外部には送信しません）。ブラウザのデータを消したり、機種変更したりすると消えるので、ときどき控えをとってください。パソコンとスマホで記録を共有したいときも、この控えを使えます。</p>
+    <p class="note"><b>iPhoneをお使いの方へ：</b>Safariは、しばらくそのページを開かないと、保存データを自動で消すことがあります。「ホーム画面に追加」して使うと消えにくくなります。念のため、ときどき「控えを作る」をおすすめします。</p>
+    <button class="btn sub sm" id="b-exp">控えを作る</button>
+    <button class="btn sub sm" id="b-imp">控えから戻す</button>
+    <textarea id="b-box" placeholder="ここに控えの文字が表示されます。戻すときは、控えの文字を貼り付けて「控えから戻す」を押します。"></textarea>
+    <p class="note" id="b-msg"></p>
+  </div>
+  <div class="card">
+    <button class="btn sub sm" id="b-reset">すべてリセット</button>
+    <span class="note">（設定と記録を、最初の状態に戻します）</span>
+  </div>
+</section>
+
+<section id="t-help" class="tab">
+  <h2>📖 使い方</h2>
+  <div class="card">
+    <h3>3ステップ</h3>
+    <ol>
+      <li><b>設定</b>で、開始年・開始月とイベント項目、年間予算を決めます。（初期値は例です）</li>
+      <li><b>入力</b>で、使った日・項目・金額を入れます。</li>
+      <li><b>ホーム</b>で、予算の残りと積立の目安を見ます。<span class="fullonly">月ごとの推移は<b>月別</b>で見られます。</span></li>
+    </ol>
+    <p>入力するのは、②だけです。</p>
+  </div>
+  <div class="card">
+    <h3>積立の目安とは？</h3>
+    <p>年間予算 ÷ 12 が、毎月の積立目安です。たとえば帰省の予算が年80,000円なら、毎月約6,700円を取り分けておく、という考え方です。</p>
+  </div>
+  <div class="card">
+    <h3>ホーム画面に置くと便利です</h3>
+    <p><b>iPhone：</b>Safariの共有ボタン →「ホーム画面に追加」</p>
+    <p><b>Android：</b>Chromeのメニュー →「ホーム画面に追加」</p>
+    <p class="note">iPhoneでは、ホーム画面に追加して使うと、記録が消えにくくなります。</p>
+  </div>
+  <div class="card">
+    <h3>ご利用について</h3>
+    <ul>
+      <li>個人利用に限ります。初期値の金額は「例」であり、参考用です。</li>
+      <li>不具合やご質問は、メール（azabumin@gmail.com）までご連絡ください。</li>
+      <li>記録はこの端末のブラウザにだけ保存されます。ブラウザのデータを消すと消えるので、設定画面の「控え」をときどきとってください。</li>
+      <li class="fullonly">このページのURLは、ご本人の個人利用に限ります。SNS投稿・共有・転売はお控えください。</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>販売元：株式会社PRIAMOS（ブランド：ゆるり家計簿）<br><a href="../../../tokusho.html">特定商取引法に基づく表記</a>　<a href="../../../policy.html">利用規約・プライバシーポリシー</a></p>
+</footer>
+
+<nav class="bot">
+  <button data-t="home" class="on"><span>🏠</span>ホーム</button>
+  <button data-t="input"><span>✏️</span>入力</button>
+  <button data-t="month" class="fullonly"><span>📅</span>月別</button>
+  <button data-t="set"><span>⚙️</span>設定</button>
+  <button data-t="help"><span>📖</span>使い方</button>
+</nav>
+
+<script>
+(function(){
+  var FULL=true, N=15, MAXE=1000, KEY="yururi-full-v1";
+  if(!FULL){ document.querySelectorAll(".fullonly").forEach(function(e){e.classList.add("hide");}); }
+  else { document.querySelectorAll(".liteonly").forEach(function(e){e.classList.add("hide");}); }
+  var today=new Date();
+  var PRE=[["帰省・旅行",80000,8,"お盆・GWなど"],["冠婚葬祭（ご祝儀・香典）",60000,6,""],["誕生日・記念日",30000,3,"家族・友人・パートナー"],["クリスマス・年末年始",40000,12,""],["お中元・お歳暮",20000,7,""],["美容（ヘア・ネイル）",60000,0,""],["推し活・イベント",50000,10,"チケット・グッズ・遠征"],["家電・家具の買い替え",40000,11,""],["資格・習い事",30000,4,""],["年払い（保険・サブスク）",30000,9,""],["その他（予備費）",20000,0,"想定外の出費用"]];
+  var LITEPRE=[PRE[0],PRE[1],PRE[2],PRE[3],PRE[10]];
+  function def(){
+    var src=FULL?PRE:LITEPRE, items=[];
+    for(var k=0;k<N;k++){var p=src[k]; items.push(p?{n:p[0],b:p[1],p:FULL?p[2]:0,i:0,memo:p[3]}:{n:"",b:0,p:0,i:0,memo:""});}
+    return {y:today.getFullYear(),m:1,ref:"",items:items,ent:[]};
+  }
+  var S=load();
+  function load(){
+    try{var s=JSON.parse(localStorage.getItem(KEY)); if(s&&s.items&&s.ent){ while(s.items.length<N) s.items.push({n:"",b:0,p:0,i:0,memo:""}); return s;}}catch(e){}
+    return def();
+  }
+  function save(){ try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){} }
+  function $(i){return document.getElementById(i);}
+  function yen(n){return Math.round(n).toLocaleString("ja-JP")+"円";}
+  function num(n){return Math.round(n).toLocaleString("ja-JP");}
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function parseD(s){var p=String(s).split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+  function ymI(d){return d.getFullYear()*12+d.getMonth();}
+  function startIdx(){return S.y*12+(S.m-1);}
+  function nowD(){return S.ref?parseD(S.ref):today;}
+  function elapsed(){return Math.max(0,Math.min(12,ymI(nowD())-startIdx()+1));}
+  function monIdx(ds){var d=ymI(parseD(ds))-startIdx(); return (d>=0&&d<12)?d:-1;}
+  function mname(k){return (((S.m-1+k)%12)+1)+"月";}
+
+  function calc(){
+    var names={}, used={}, byM={}, bad=0, badIds={};
+    S.items.forEach(function(it){ if(it.n){names[it.n]=1; used[it.n]=0; byM[it.n]=[0,0,0,0,0,0,0,0,0,0,0,0];} });
+    S.ent.forEach(function(e){
+      var k=e.date?monIdx(e.date):-1;
+      if(!e.date||!e.item||!(e.amt>=0)||k<0||!names[e.item]){bad++;badIds[e.id]=1;return;}
+      used[e.item]+=e.amt; byM[e.item][k]+=e.amt;
+    });
+    return {used:used,byM:byM,bad:bad,badIds:badIds};
+  }
+
+  function renderHome(){
+    var si=startIdx(), ei=si+11;
+    $("period").textContent="集計期間："+S.y+"年"+S.m+"月1日 〜 "+Math.floor(ei/12)+"年"+((ei%12)+1)+"月末";
+    var c=calc(), el=elapsed(), tb=0,tu=0,tm=0,tp=0, html="", anyOver=false;
+    S.items.forEach(function(it){
+      if(!it.n) return;
+      var b=+it.b||0, u=c.used[it.n]||0, m=Math.ceil(b/12), pool=(+it.i||0)+m*el-u, left=b-u;
+      tb+=b; tu+=u; tm+=m; tp+=pool;
+      var pct=b>0?Math.round(u/b*100):0, over=u>b; if(over) anyOver=true;
+      var bw=Math.max(0,Math.min(100,pct));
+      html+='<div class="card"><h3>'+esc(it.n)+'</h3>'
+        +'<div class="row"><span>年間予算</span><b>'+yen(b)+'</b></div>'
+        +'<div class="row"><span>使った額</span><b>'+yen(u)+'</b></div>'
+        +'<div class="bar'+(over?' over':'')+'"><i style="width:'+bw+'%"></i></div>'
+        +'<div class="row"><span>'+(b<=0?'予算未設定':(over?'<span class="over-t">予算オーバー</span>':'残り')+'　'+pct+'%使用')+'</span><b'+(over?' class="over-t"':'')+'>'+yen(left)+'</b></div>'
+        +'<div class="row"><span>毎月の積立目安</span><b>'+yen(m)+'</b></div>'
+        +'<div class="row"><span>積立残高（目安）</span><b'+(pool<0?' class="neg"':'')+'>'+yen(pool)+'</b></div>'
+        +((FULL&&it.p>=1&&it.p<=12)?'<div class="row"><span>支払予定月</span><b>'+it.p+'月</b></div>':'')
+        +'</div>';
+    });
+    $("items").innerHTML=html||'<div class="card note">設定で、イベント項目を入れてください。</div>';
+    $("s-budget").textContent=yen(tb); $("s-used").textContent=yen(tu);
+    $("s-left").textContent=yen(tb-tu); $("s-month").textContent=yen(tm); $("s-pool").textContent=yen(tp);
+    var m=$("check");
+    if(c.bad>0){m.className="msg warn";m.textContent="⚠ 入力チェック："+c.bad+"件 要確認（期間外・項目名の違いなど。集計に入っていません）";}
+    else if(anyOver){m.className="msg warn";m.textContent="予算オーバーの項目があります。内訳を見直してみましょう";}
+    else{m.className="msg";m.textContent="順調です ♡ この調子でコツコツ積み立てましょう";}
+    return c;
+  }
+
+  function renderMonth(c){
+    if(!FULL) return;
+    var head="<tr><th>項目</th>"; for(var k=0;k<12;k++) head+="<th>"+mname(k)+"</th>";
+    function tbl(id,rows,tot,extraTot){ $(id).innerHTML=head+(extraTot?"<th>合計</th>":"")+"</tr>"+rows+tot; }
+    var r1="",r2="",r3="",t1=new Array(12).fill(0),t2=new Array(12).fill(0),t3=new Array(12).fill(0), T1=0,T2=0;
+    S.items.forEach(function(it){
+      if(!it.n) return;
+      var a=c.byM[it.n], b=+it.b||0, m=Math.ceil(b/12), cum=0, s1=0, s2=0, x1="",x2="",x3="";
+      for(var k=0;k<12;k++){
+        x1+="<td>"+(a[k]?num(a[k]):"－")+"</td>"; t1[k]+=a[k]; s1+=a[k];
+        var pv=(it.p>=1&&it.p<=12&&((S.m-1+k)%12)+1===it.p)?b:0; x2+="<td>"+(pv?num(pv):"－")+"</td>"; t2[k]+=pv; s2+=pv;
+        cum+=a[k]; var bal=(+it.i||0)+m*(k+1)-cum; t3[k]+=bal; x3+='<td'+(bal<0?' class="neg"':'')+'>'+num(bal)+"</td>";
+      }
+      r1+="<tr><td>"+esc(it.n)+"</td>"+x1+"<td><b>"+(s1?num(s1):"－")+"</b></td></tr>";
+      r2+="<tr><td>"+esc(it.n)+"</td>"+x2+"<td><b>"+(s2?num(s2):"－")+"</b></td></tr>";
+      r3+="<tr><td>"+esc(it.n)+"</td>"+x3+"</tr>"; T1+=s1; T2+=s2;
+    });
+    function tot(arr,sum){var h='<tr class="tot"><td>合計</td>'; arr.forEach(function(v){h+="<td>"+(v?num(v):"－")+"</td>";}); if(sum!==null) h+="<td>"+(sum?num(sum):"－")+"</td>"; return h+"</tr>";}
+    function tot3(){var h='<tr class="tot"><td>合計</td>'; t3.forEach(function(v){h+='<td'+(v<0?' class="neg"':'')+'>'+num(v)+"</td>";}); return h+"</tr>";}
+    tbl("m1",r1,tot(t1,T1),true); tbl("m2",r2,tot(t2,T2),true);
+    $("m3").innerHTML=head+"</tr>"+r3+tot3();
+  }
+
+  function renderInput(c){
+    var sel=$("f-item"), cur=sel.value, o="";
+    S.items.forEach(function(it){ if(it.n) o+='<option>'+esc(it.n)+'</option>'; });
+    sel.innerHTML=o; if(cur) sel.value=cur;
+    var L=S.ent.slice().sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:b.id-a.id;});
+    var h="";
+    L.forEach(function(e){
+      h+='<div class="ent'+(c.badIds[e.id]?' bad':'')+'"><span class="d">'+esc(e.date)+'</span><span class="m">'+esc(e.item)+(c.badIds[e.id]?' <span class="warnline">⚠要確認</span>':'')+(e.memo?'<small>'+esc(e.memo)+'</small>':'')+'</span><span class="a">'+yen(e.amt)+'</span><button class="x" data-del="'+e.id+'" aria-label="削除">×</button></div>';
+    });
+    $("list").innerHTML=h||'<span class="note">まだ記録がありません。</span>';
+  }
+  function dstr(d){var m=d.getMonth()+1,dd=d.getDate();return d.getFullYear()+"-"+(m<10?"0":"")+m+"-"+(dd<10?"0":"")+dd;}
+  $("f-date").value=dstr(today);
+  $("f-add").onclick=function(){
+    var d=$("f-date").value,it=$("f-item").value,a=parseInt($("f-amt").value,10),memo=$("f-memo").value.trim(),er=$("f-err");
+    er.textContent=""; er.style.color="";
+    if(!d){er.textContent="日付を入れてください。";return;}
+    if(!it){er.textContent="項目を選んでください（設定で項目を入れます）。";return;}
+    if(!(a>=0)){er.textContent="金額を入れてください。";return;}
+    if(S.ent.length>=MAXE){er.textContent=FULL?"記録が1,000件に達しました。":"お試し版は300件までです。完全版は1,000件まで記録できます。";return;}
+    S.ent.push({id:Date.now(),date:d,item:it,amt:a,memo:memo});
+    save(); $("f-amt").value=""; $("f-memo").value=""; refresh();
+    er.style.color="#2e7d32"; er.textContent="追加しました ♡"; setTimeout(function(){er.textContent="";er.style.color="";},1800);
+  };
+  $("list").onclick=function(ev){
+    var id=ev.target.getAttribute&&ev.target.getAttribute("data-del"); if(!id) return;
+    S.ent=S.ent.filter(function(e){return String(e.id)!==id;}); save(); refresh();
+  };
+
+  function renderSet(){
+    $("s-year").value=S.y; $("s-ref").value=S.ref||"";
+    var o=""; for(var i=1;i<=12;i++) o+='<option value="'+i+'">'+i+'月</option>';
+    $("s-mon").innerHTML=o; $("s-mon").value=S.m;
+    var h="";
+    for(var k=0;k<N;k++){
+      var it=S.items[k];
+      h+='<div class="card"><label>項目名 '+(k+1)+'</label><input type="text" data-k="'+k+'" data-f="n" maxlength="20" value="'+esc(it.n)+'">'
+        +'<div class="'+(FULL?'grid3':'grid2')+'"><div><label>年間予算（円）</label><input type="number" inputmode="numeric" min="0" data-k="'+k+'" data-f="b" value="'+(it.b||"")+'"></div>';
+      if(FULL){
+        var po='<option value="0">なし</option>'; for(var q=1;q<=12;q++) po+='<option value="'+q+'"'+(it.p===q?' selected':'')+'>'+q+'月</option>';
+        h+='<div><label>支払予定月</label><select data-k="'+k+'" data-f="p">'+po+'</select></div>';
+      }
+      h+='<div><label>最初から貯めてある額</label><input type="number" inputmode="numeric" min="0" data-k="'+k+'" data-f="i" value="'+(it.i||"")+'"></div></div></div>';
+    }
+    $("set-items").innerHTML=h;
+  }
+  $("s-year").onchange=function(){var v=parseInt(this.value,10); if(v>=2000&&v<=2100){S.y=v;save();refresh();}};
+  $("s-mon").onchange=function(){S.m=parseInt(this.value,10);save();refresh();};
+  $("s-ref").onchange=function(){S.ref=this.value||"";save();refresh();};
+  function onItem(ev){
+    var t=ev.target,k=t.getAttribute("data-k"),f=t.getAttribute("data-f"); if(k===null) return;
+    var it=S.items[k];
+    if(f==="n"){
+      var old=it.n, nv=t.value.trim();
+      if(old&&nv&&old!==nv){ S.ent.forEach(function(e){ if(e.item===old) e.item=nv; }); }
+      it.n=nv;
+    } else if(f==="p"){ it.p=parseInt(t.value,10)||0; }
+    else { it[f]=Math.max(0,parseInt(t.value,10)||0); }
+    save(); var c=renderHome(); renderMonth(c); renderInput(c);
+  }
+  $("set-items").oninput=onItem; $("set-items").onchange=onItem;
+  $("b-exp").onclick=function(){ $("b-box").value=JSON.stringify(S); $("b-box").select(); $("b-msg").textContent="控えを作りました。この文字をコピーして、メモアプリなどに保存してください。"; };
+  $("b-imp").onclick=function(){
+    try{
+      var v=JSON.parse($("b-box").value);
+      if(!v||!v.items||!v.ent||typeof v.y!=="number") throw 0;
+      while(v.items.length<N) v.items.push({n:"",b:0,p:0,i:0,memo:""});
+      v.items=v.items.slice(0,N);
+      S=v; save(); renderSet(); refresh(); $("b-msg").textContent="控えから戻しました ♡";
+    }catch(e){ $("b-msg").textContent="控えの文字が正しくないようです。もう一度貼り付けてください。"; }
+  };
+  $("b-reset").onclick=function(){
+    if(confirm("設定と記録を、すべて最初の状態に戻します。よろしいですか？")){ S=def(); save(); renderSet(); refresh(); }
+  };
+
+  function refresh(){ var c=renderHome(); renderMonth(c); renderInput(c); }
+
+  var btns=document.querySelectorAll("nav.bot button");
+  btns.forEach(function(b){ b.onclick=function(){
+    btns.forEach(function(x){x.classList.toggle("on",x===b);});
+    document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("on");});
+    $("t-"+b.getAttribute("data-t")).classList.add("on"); window.scrollTo(0,0);
+  };});
+
+  try{ if(navigator.storage&&navigator.storage.persist) navigator.storage.persist(); }catch(e){}
+  renderSet(); refresh();
+  window.__YK={calc:function(){return {S:S,el:elapsed()};}};
+})();
+</script>
+</body>
+</html>
